@@ -1,0 +1,33 @@
+ $info['id'] = '';
+        $info['username'] = 'studentt';
+        $info['password'] = '123';
+        //$info['type'] = $_POST['type'];
+        $info['fname'] = 'mm';
+        $info['lname'] = 'nn';
+        $info['phone'] = 13548453;
+        $info['address'] = 'ibn-sina';
+        $info['email'] = 'u@yahoo.com';
+        $info['age'] = 20;
+        
+        $info['level'] = 4;
+        $info['photoUrl'] = '../uploads/stdimg/download.png';
+        $info['photoUrl1'] = '../uploads/stdimg/download.png';
+        
+        $info2['id'] = '';
+        $info2['username'] = 'parentt';
+        $info2['password'] = '123';
+        //$info['type'] = $_POST['type'];
+        $info2['fname'] = 'pp';
+        $info2['lname'] = 'ppp';
+        $info2['phone'] = 79876523;
+        $info2['address'] = 'street';
+        $info2['email'] = 'r@yahoo.com';
+        $info2['age'] = 50;
+        
+        $info2['occupation'] = 'qq';
+        
+        $this->parent = Parents::parentsinfo($info2['occupation']);
+        $this->parent->p_info($info2);
+        $expected = true;
+        $actual = student::add($info, $this->parent);
+        $this->assertEquals($expected, $actual);
